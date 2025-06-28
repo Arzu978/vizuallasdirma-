@@ -1,0 +1,42 @@
+mehsullar={"alma": 1.5, "banan": 1.0, "sud":2.5, "corek":2.0}
+sebet=[]
+while True::
+           
+    print("mini alisveris sistemi")
+    print("1. movcud mehsullari gormek")
+    print("2. sebete mehsul elave etmek")
+    print("3. sebetden mehsul silmek")
+    print("4. sebetdeki mehsullari goster")
+    print("5.sebetin umumi meblegi")
+    secim=int(input('ededleri sec(1-5):'))
+    if secim == 1:
+        print("movcud mehsullari gormek")
+        for mehsul, qiymet in mehsullar.items():
+            print(f"{mehsul}:{qiymet} azn")
+    elif secim == 2:
+        mehsul = input('mehsul elave et:')
+        if mehsul in mehsullar:
+               sebet.append(mehsul)
+               print(f" {mehsul} səbətə əlavə edildi")
+        else print("Bu məhsul mövcud deyil")
+
+    elif secim == 3:
+        mehsul = input("Silmək istədiyiniz məhsulu daxil edin: ")
+        if mehsul in sebet:
+            sebet.remove(mehsul)
+            print(f" {mehsul} səbətdən çıxarıldı")
+        else:
+            print("Bu məhsul səbətdə yoxdur")
+
+    elif secim == 4:
+            print("Səbətiniz:")
+            for mehsul in sebet:
+                print(f" {mehsul} ({mehsullar[mehsul]} AZN)")
+    elif secim == 5:
+        toplam_qiymet = sum(mehsullar[mehsul] for mehsul in sebet)
+        print(f"Sizin ümumi məbləğiniz: {toplam_qiymet:} AZN")
+        print("Alış-verişiniz üçün təşəkkür edirik!")
+        break
+
+    else:
+        print("Yanlış seçim! 1-5 arasında seçim edin")
